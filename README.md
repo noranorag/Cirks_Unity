@@ -2,11 +2,12 @@
 Unity 2.5D Circus project
 
 ### To do list
-- [ ] Create main menu
+- [X] Create main menu
 - [X] Add animations to dice and clouds
 - [X] Change cursor
 - [X] Change default SkyBox
-- [ ] Add sounds
+- [X] Add sounds
+- [ ] Added fade effect on load adn close
 - [ ] Add settings
 - [ ] Add character selection screen
 - [ ] Add throwable dice
