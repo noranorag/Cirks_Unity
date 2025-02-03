@@ -30,6 +30,6 @@ public class ScenesChangeScript : MonoBehaviour
         {
             yield return fadeScript.FadeIn(0.1f);
             SceneManager.LoadScene(1, LoadSceneMode.Single);
-        }
+        } 
     }
 }
