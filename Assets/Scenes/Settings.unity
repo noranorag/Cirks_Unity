@@ -2727,7 +2727,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 83.2
+  m_fontSize: 77.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3106,6 +3106,7 @@ GameObject:
   - component: {fileID: 1068211081}
   - component: {fileID: 1068211083}
   - component: {fileID: 1068211084}
+  - component: {fileID: 1068211085}
   m_Layer: 0
   m_Name: ScriptHolder
   m_TagString: Untagged
@@ -3178,6 +3179,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeScript: {fileID: 2076636416}
+  saveLoadScript: {fileID: 0}
+--- !u!114 &1068211085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068211080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab24a26587507c64ca72e67c6d531701, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resolutionDropdown: {fileID: 411784201}
 --- !u!1 &1101374372
 GameObject:
   m_ObjectHideFlags: 0
@@ -4053,8 +4068,8 @@ RectTransform:
   - {fileID: 517118752}
   - {fileID: 797791873}
   - {fileID: 411784200}
-  - {fileID: 2076636415}
   - {fileID: 928092951}
+  - {fileID: 2076636415}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

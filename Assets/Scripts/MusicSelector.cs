@@ -1,58 +1,78 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using TMPro;
 
 public class MusicSelector : MonoBehaviour
 {
-    public AudioSource audioSource; // Reference to the AudioSource
-    public Dropdown musicDropdown; // Reference to the Dropdown
-    public AudioClip[] musicClips; // Array to hold different music clips
+    public AudioSource audioSource; 
+    public Dropdown musicDropdown; 
+    public AudioClip[] musicClips; 
 
-    private const string MusicKey = "SelectedMusicIndex"; // Key for PlayerPrefs
-    private static MusicSelector instance; // Singleton instance
+    private const string MusicKey = "SelectedMusicIndex"; 
 
-    void Awake()
+    void OnEnable()
     {
-        // Check if an instance already exists
-        if (instance != null && instance != this)
+        PopulateDropdown(); 
+    }
+
+    private void PopulateDropdown()
+    {
+        if (audioSource == null)
         {
-            Destroy(gameObject); // Destroy duplicate instance
+            Debug.LogError("AudioSource is not assigned in the Inspector.");
             return;
         }
 
-        instance = this; // Set the singleton instance
-        DontDestroyOnLoad(gameObject); // Keep this object alive across scenes
+        if (musicDropdown == null)
+        {
+            Debug.LogError("Dropdown is not assigned in the Inspector.");
+            return;
+        }
+
+        if (musicClips == null || musicClips.Length == 0)
+        {
+            Debug.LogError("Music clips array is empty or not assigned in the Inspector.");
+            return;
+        }
+
+        musicDropdown.ClearOptions(); 
+        List<string> options = new List<string>(); 
+
+        foreach (AudioClip clip in musicClips)
+        {
+            options.Add(clip.name); 
+        }
+
+        musicDropdown.AddOptions(options); 
+
+        int savedIndex = PlayerPrefs.GetInt(MusicKey, 0);
+        musicDropdown.value = savedIndex; 
+
+        if (savedIndex < musicClips.Length)
+        {
+            audioSource.clip = musicClips[savedIndex]; 
+            audioSource.Play(); 
+        }
     }
 
     void Start()
     {
-        // Populate the dropdown with the names of the audio clips
-        musicDropdown.ClearOptions();
-        List<string> options = new List<string>();
-
-        foreach (AudioClip clip in musicClips)
-        {
-            options.Add(clip.name); // Add the name of each clip to the options
-        }
-
-        musicDropdown.AddOptions(options); // Add options to the dropdown
-
-        // Load the saved music index or set to default (0)
-        int savedIndex = PlayerPrefs.GetInt(MusicKey, 0);
-        musicDropdown.value = savedIndex; // Set the dropdown to the saved index
-        audioSource.clip = musicClips[savedIndex]; // Set the AudioSource clip to the saved clip
-        audioSource.Play(); // Start playing the selected clip
-
-        // Add a listener to the dropdown to call the ChangeMusic method when the value changes
         musicDropdown.onValueChanged.AddListener(ChangeMusic);
     }
 
-    // Method to change the music
     public void ChangeMusic(int index)
     {
-        audioSource.clip = musicClips[index]; // Change the audio clip based on the dropdown selection
-        audioSource.Play(); // Play the new audio clip
-        PlayerPrefs.SetInt(MusicKey, index); // Save the selected music index
-        PlayerPrefs.Save(); // Ensure the PlayerPrefs are saved
+        if (index < musicClips.Length)
+        {
+            audioSource.clip = musicClips[index]; 
+            audioSource.Play(); 
+            PlayerPrefs.SetInt(MusicKey, index); 
+            PlayerPrefs.Save(); 
+        }
+        else
+        {
+            Debug.LogWarning("Index out of range when changing music: " + index);
+        }
     }
 }
