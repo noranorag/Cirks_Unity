@@ -1304,7 +1304,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 512, y: 234.6}
+  m_AnchoredPosition: {x: 443, y: 234.6}
   m_SizeDelta: {x: 114.888, y: 102.15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &224097951
@@ -2937,7 +2937,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 647, y: 234.6}
+  m_AnchoredPosition: {x: 576, y: 234.6}
   m_SizeDelta: {x: 109.604, y: 102.15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &556437423
@@ -4232,7 +4232,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 477, y: 172}
+  m_AnchoredPosition: {x: 435, y: 189}
   m_SizeDelta: {x: 93.4125, y: 86.5172}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &771717091
@@ -5656,7 +5656,7 @@ MonoBehaviour:
   - {fileID: 1374899527}
   - {fileID: 1811986515}
   inputField: {fileID: 9753788}
-  playerCount: 2
+  playerCount: 4
   scenesChangeScript: {fileID: 1068211084}
 --- !u!114 &1068211086
 MonoBehaviour:

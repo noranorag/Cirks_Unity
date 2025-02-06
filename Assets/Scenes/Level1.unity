@@ -456,12 +456,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefabs:
   - {fileID: 7827688558552098793, guid: 25b50a447633238499150d95f1066b0f, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6883849453221203110, guid: 0793f1fd3479b5641a50c156c6692d79, type: 3}
+  - {fileID: 5021455820966492341, guid: 6784fc97e2f28ca439f8cdb3059a10d5, type: 3}
+  - {fileID: 5881480935100114472, guid: e0006fc7de8023e49af27288c3bda4ce, type: 3}
+  - {fileID: 618871151971277609, guid: fe30895e0cf8023438a12d439a54926a, type: 3}
+  - {fileID: 2357577120336242019, guid: 38ca48e27fcc1c040b47367acebb858c, type: 3}
+  - {fileID: 8218046064444950534, guid: 671b535c3fa45c74faa2f0ae9f885ee3, type: 3}
   spawnPoint: {fileID: 1804147735}
 --- !u!1 &1355685882
 GameObject:
@@ -523,7 +523,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a6e2280faa6c7204582cef09a765d55b, type: 2}
+  - {fileID: 2100000, guid: b19d4ae380c8e384ab552826dcebfa53, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
