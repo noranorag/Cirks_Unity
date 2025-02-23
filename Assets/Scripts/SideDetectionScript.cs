@@ -11,23 +11,27 @@ public class SideDetectionScript : MonoBehaviour
         diceRollScript = FindObjectOfType<DiceRollScript>();
     }
 
-    // Update is called once per frame
     private void OnTriggerStay(Collider sideCollider)
     {
         if (sideCollider != null)
         {
             if (diceRollScript.GetComponent<Rigidbody>().velocity == Vector3.zero)
             {
-                diceRollScript.isLanded = true;
-                diceRollScript.diceFaceNum = sideCollider.name;
+                if (!diceRollScript.isLanded)
+                {
+                    diceRollScript.isLanded = true;
+                    diceRollScript.diceFaceNum = sideCollider.name;
+                    Debug.Log("Dice face detected: " + diceRollScript.diceFaceNum);
+                }
             }
             else
+            {
                 diceRollScript.isLanded = false;
-
-
+            }
         }
         else
+        {
             Debug.LogError("DiceRollScript is not found");
         }
     }
-
+}

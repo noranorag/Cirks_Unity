@@ -1,19 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
 public class ChooseCharacterScript : MonoBehaviour
 {
-
     public GameObject[] characters;
     int characterIndex;
 
     public GameObject inputField;
     string characterName;
-    public int playerCount = 2;
+    public TMP_Dropdown playerCountDropdown; // Reference to the dropdown
     public ScenesChangeScript scenesChangeScript;
 
     void Awake()
@@ -31,7 +29,7 @@ public class ChooseCharacterScript : MonoBehaviour
     {
         characters[characterIndex].SetActive(false);
         characterIndex++;
-        if(characterIndex == characters.Length)
+        if (characterIndex == characters.Length)
         {
             characterIndex = 0;
         }
@@ -44,7 +42,7 @@ public class ChooseCharacterScript : MonoBehaviour
         characterIndex--;
         if (characterIndex == -1)
         {
-            characterIndex = characters.Length-1;
+            characterIndex = characters.Length - 1;
         }
         characters[characterIndex].SetActive(true);
     }
@@ -56,10 +54,12 @@ public class ChooseCharacterScript : MonoBehaviour
         {
             PlayerPrefs.SetInt("SelectedCharacter", characterIndex);
             PlayerPrefs.SetString("PlayerName", characterName);
-            PlayerPrefs.SetInt("PlayerCount", playerCount);
+            PlayerPrefs.SetInt("PlayerCount", playerCountDropdown.value + 1); // Save the selected player count
             StartCoroutine(scenesChangeScript.Delay("play", characterIndex, characterName));
         }
         else
+        {
             inputField.GetComponent<TMP_InputField>().Select();
+        }
     }
 }
