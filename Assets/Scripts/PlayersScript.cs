@@ -20,6 +20,7 @@ public class PlayersScript : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("PlayersScript started");
         int characterIndex = PlayerPrefs.GetInt("SelectedCharacter", 0);
         Debug.Log("SelectedCharacter index: " + characterIndex);
 
@@ -107,8 +108,6 @@ public class PlayersScript : MonoBehaviour
             Debug.Log("MoveCharacter called but character is already moving.");
         }
     }
-
-    
 
     private IEnumerator MoveCharacterStepByStep(int steps)
     {
@@ -224,7 +223,6 @@ public class PlayersScript : MonoBehaviour
         }
     }
 
-
     public int GetPlayerCount()
     {
         return characters.Count;
@@ -232,6 +230,7 @@ public class PlayersScript : MonoBehaviour
 
     public void SetCurrentPlayer(int playerIndex)
     {
+        Debug.Log("Setting current player to index: " + playerIndex);
         currentPlayerIndex = playerIndex;
     }
 
@@ -242,11 +241,13 @@ public class PlayersScript : MonoBehaviour
 
     public void PlayerThrowDice()
     {
+        Debug.Log("Player has thrown the dice");
         playerHasThrownDice = true;
     }
 
     public void ResetPlayerThrowDice()
     {
+        Debug.Log("Resetting player throw dice");
         playerHasThrownDice = false;
     }
 
@@ -276,4 +277,3 @@ public class PlayersScript : MonoBehaviour
         HandleSpecialTileActions(); // Handle special tile actions after setting the character to the tile
     }
 }
-

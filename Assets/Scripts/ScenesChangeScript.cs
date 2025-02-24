@@ -24,6 +24,11 @@ public class ScenesChangeScript : MonoBehaviour
         StartCoroutine(Delay("mainmenu", -1, ""));
     }
 
+    public void GoPause()
+    {
+        StartCoroutine(Delay("pause", -1, ""));
+    }
+
 
     public IEnumerator Delay(string command, int character, string name)
     {
@@ -54,6 +59,11 @@ public class ScenesChangeScript : MonoBehaviour
         {
             yield return fadeScript.FadeIn(0.1f);
             SceneManager.LoadScene(0, LoadSceneMode.Single);
+        }
+        else if (string.Equals(command, "pause", StringComparison.OrdinalIgnoreCase))
+        {
+            yield return fadeScript.FadeIn(0.1f);
+            SceneManager.LoadScene(3, LoadSceneMode.Single);
         }
         }
     }

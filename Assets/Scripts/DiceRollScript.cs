@@ -54,6 +54,7 @@ public class DiceRollScript : MonoBehaviour
 
     public void RollDice()
     {
+        Debug.Log("Rolling dice");
         rBody.isKinematic = false;
         forceX = Random.Range(0, maxRandForceVal);
         forceY = Random.Range(0, maxRandForceVal);
@@ -64,6 +65,7 @@ public class DiceRollScript : MonoBehaviour
 
     public void ResetDice()
     {
+        Debug.Log("Resetting dice");
         rBody.isKinematic = true;
         firstThrow = false;
         isLanded = false;

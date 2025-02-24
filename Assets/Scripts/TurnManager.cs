@@ -7,10 +7,10 @@ public class TurnManager : MonoBehaviour
     public PlayersScript playersScript;
     public DiceRollScript diceRollScript;
     private int currentPlayerIndex = 0;
-    private bool isPlayerTurn = true;
 
     void Start()
     {
+        Debug.Log("TurnManager started");
         StartCoroutine(HandleTurn());
     }
 
@@ -18,20 +18,22 @@ public class TurnManager : MonoBehaviour
     {
         while (true)
         {
-            if (isPlayerTurn)
+            Debug.Log("Current player index: " + currentPlayerIndex);
+            if (currentPlayerIndex == 0)
             {
-                // Wait for the player to throw the dice
+                // Player's turn
+                Debug.Log("Player's turn");
                 yield return new WaitUntil(() => playersScript.HasPlayerThrownDice());
                 playersScript.ResetPlayerThrowDice();
-                isPlayerTurn = false;
             }
             else
             {
                 // AI turn
+                Debug.Log("AI's turn");
                 int diceRoll = Random.Range(1, 7); // Simulate dice throw for AI
+                Debug.Log("AI rolled: " + diceRoll);
                 playersScript.MoveCharacter(diceRoll);
                 yield return new WaitForSeconds(2); // Wait for AI to complete its move
-                isPlayerTurn = true;
             }
 
             // Switch to the next player
